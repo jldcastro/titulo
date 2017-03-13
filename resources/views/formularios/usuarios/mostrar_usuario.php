@@ -49,8 +49,8 @@
 
                     <div class="form-group has-feedback col-md-12">
                         <label for="rut_usuario">Tipo de Usuario</label>
-                        <input type="text" class="form-control" id="tipoUsuario" name="tipoUsuario" value="<?= $usuario->tipoUsuario; ?>" disabled>
-                        <span class="fa fa-barcode form-control-feedback"></span>
+                        <input type="text" class="form-control" id="tipo_usuario" name="tipo_usuario" value="<?= $usuario->tipo_usuario; ?>" disabled>
+                        <span class="fa fa-list form-control-feedback"></span>
                     </div>
                 </div>
             </form>

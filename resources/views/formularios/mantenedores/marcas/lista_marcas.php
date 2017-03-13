@@ -1,7 +1,5 @@
-<div class="box box-primary">
-
     <div class="box-header">
-        <h3 class="box-title">Lista de marcas/modelos</h3>
+        <h3 class="box-title">Lista de marcas</h3>
     </div>
 
     <div class="box-body">
@@ -25,7 +23,7 @@
 
                     <tr role="row" class="odd">
                         <td class="sorting_1"><?= $marca->id; ?></td>
-                        <td><?= $marca->marca_modelo; ?></td>
+                        <td><?= $marca->nombre; ?></td>
                         <td><button class=".btn  btn-success btn-xs" onclick="editar_marca(<?= $marca->id; ?>);" ><i class="fa fa-fw fa-pencil-square-o"></i> Actualizar</button>
                             <button class=".btn  btn-danger btn-xs" onclick="eliminar_marca(<?= $marca->id; ?>);" ><i class="fa fa-fw fa-remove"></i> Eliminar</button>
                         </td>
@@ -44,16 +42,15 @@
         {
             ?>
 
-            <br/><div class='alert alert-warning'><label>No existe ninguna marca o modelo dentro de la lista</label></div>
+            <br/><div class='alert alert-warning'><label>No existe ninguna marca dentro de la lista</label></div>
 
         <?php
         }
         ?>
 
     </div>
-</div>
 <div class="form-group has-feedback">
-    <button class=".btn btn-primary col-md-offset-5"><i class="fa fa-plus"></i><a href="javascript:void(0);" onclick="agregar(4);" style="color: #ffffff"> Agregar Marca</a></button>
+    <button class=".btn btn-primary col-md-offset-5"><a href="javascript:void(0);" onclick="agregar(4);" style="color: #ffffff"> Agregar Marca</a></button>
 </div>
 
 

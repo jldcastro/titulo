@@ -82,14 +82,12 @@ class UsuariosController extends Controller
 
     public function actualizar_usuario(Request $request)
     {
-
-        $data = $request::all();
-        $idUsuario = $data["id_usuario"];
+        $idUsuario = $request->input("id_usuario");
         $usuario = User::find($idUsuario);
-        $usuario->name = $data["name"];
-        $usuario->email = $data["email"];
-        $usuario->apellido_paterno = $data["apellido_paterno"];
-        $usuario->apellido_materno = $data["apellido_materno"];
+        $usuario->name = $request->input("name");
+        $usuario->email = $request->input("email");
+        $usuario->apellido_paterno = $request->input("apellido_paterno");
+        $usuario->apellido_materno = $request->input("apellido_materno");
 
         $resultado = $usuario->save();
 
@@ -117,7 +115,6 @@ class UsuariosController extends Controller
 
     public function eliminar_usuario($id)
     {
-
         $usuario = User::find($id);
         $resultado = $usuario->delete();
 
@@ -126,15 +123,13 @@ class UsuariosController extends Controller
         } else {
             return view("mensajes.incorrecto")->with("mensaje", "Hubo un error vuelva a intentarlo");
         }
-
-
     }
 
     public function imagen_usuario(Request $request)
     {
 
-        $id = $request::input('usuario_foto');
-        $archivo = $request::file('archivo');
+        $id = $request->input('usuario_foto');
+        $archivo = $request->file('archivo');
         $input = array('image' => $archivo);
         $reglas = array('image' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:2000');
         $validacion = Validator::make($input, $reglas);

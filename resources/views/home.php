@@ -23,8 +23,6 @@
         <link rel="stylesheet" href="plugins/morris/morris.css">
         <!-- jvectormap -->
         <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-        <!-- Date Picker -->
-        <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
         <!-- Daterange picker -->
         <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- bootstrap wysihtml5 - text editor -->
@@ -35,51 +33,54 @@
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <link rel="stylesheet" href="css/sistemacalibracion.css">
+
+        <link rel="stylesheet" href="css/barra.css">
+
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="hold-transition skin-purple-light sidebar-mini">
+    <body class="hold-transition skin-purple layout-top-nav">
         <div class="wrapper">
             <header class="main-header">
-                <!-- Logo -->
-                <a href="#" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b><img src="imagenes/empresa/molinstec.png"></b></span>
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>MOLINSTEC</b></span>
-                </a>
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <!-- Sidebar toggle button-->
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                    </a>
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="#" class="navbar-brand"><b>MOLINSTEC</b></a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <?php
+                            if($usuario->tipo_usuario=='administrador'){include('menus/menu_administrador.php');}
+                            if($usuario->tipo_usuario=='vendedor'){include('menus/menu_vendedor.php');}
+                            ?>
+                        </div>
+                    <!-- /.navbar-collapse -->
+                    <!-- Navbar Right Menu -->
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <!-- Messages: style can be found in dropdown.less-->
-
-                            <!-- User Account: style can be found in dropdown.less -->
+                            <!-- User Account Menu -->
                             <li class="dropdown user user-menu">
+                                <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <?php if($usuario->foto==""){ $usuario->foto="imagenes/usuarios/perfil.png"; }  ?>
                                     <img src="<?=  $usuario->foto;  ?>"  alt="User Image"  style="width:20px;height:20px;">
                                     <span class="hidden-xs"><?=  $usuario->name;  ?> <?=  $usuario->apellido_paterno;  ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <!-- User image -->
+                                    <!-- The user image in the menu -->
                                     <li class="user-header">
                                         <img src="<?=  $usuario->foto;  ?>"  alt="User Image"  style="width:50px;height:50px;">
                                         <p>
-                                            Usuario Admin
-                                            <small>Member since Nov. 2012</small>
+                                            Usuario: <?= $usuario->tipo_usuario ?>
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                                        </div>
                                         <div class="pull-right">
                                             <a href="logout" class="btn btn-default btn-flat">Salir</a>
                                         </div>
@@ -88,34 +89,19 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- /.navbar-custom-menu -->
+                    </div>
+                <!-- /.container-fluid -->
                 </nav>
             </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-                <!-- Sidebar user panel -->
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <?php
-                    if($usuario->tipo_usuario=='administrador'){include('menus/menu_administrador.php');}
-                    if($usuario->tipo_usuario=='vendedor'){include('menus/menu_vendedor.php');}
-                    ?>
 
-                </section>
-            <!-- /.sidebar -->
-            </aside>
-        <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper" style="min-height:2000px;">
+
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
+                    <h1 style="text-align: center">
                         Bienvenido al sistema de calibración de masas y balanzas de la empresa MOLINSTEC
                     </h1>
-                </section>
-
-                <section>
-                    <div id="capa_modal" class="div_modal" ></div>
-                    <div id="capa_para_edicion" class="div_contenido" > </div>
                 </section>
 
                 <!-- Main content -->
@@ -160,8 +146,6 @@
         <!-- daterangepicker -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
         <script src="plugins/daterangepicker/daterangepicker.js"></script>
-        <!-- datepicker -->
-        <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
         <!-- Bootstrap WYSIHTML5 -->
         <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
         <!-- Slimscroll -->

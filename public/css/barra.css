@@ -1,0 +1,13 @@
+table{
+    table-layout: fixed;
+}
+
+#miTablaPersonalizada th{
+    width: 130px;
+    overflow: auto;
+    border: 1px solid;
+}
+
+#size{
+    width: 330px;
+}

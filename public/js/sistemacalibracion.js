@@ -8,7 +8,14 @@ function agregar(argumento){
         if(argumento==5){var ruta = "nueva_ubicacion";}
         if(argumento==6){var ruta = "nueva_actividad";}
         if(argumento==7){var ruta = "descargar_f5";}
-        if(argumento==8){var ruta = "nueva_solicitud";}
+        if(argumento==8){var ruta = "nueva_calibracion";}
+        if(argumento==9){var ruta = "nuevo_cliente";}
+        if(argumento==10){var ruta = "nueva_condicion";}
+        if(argumento==11){var ruta = "nuevo_modelo";}
+        if(argumento==12){var ruta = "nueva_unidad";}
+        if(argumento==13){var ruta = "nuevo_numero";}
+        if(argumento==14){var ruta = "nuevo_tipo";}
+
 
 		$("#contenido_principal").html($("#cargador").html());
 		   
@@ -27,7 +34,13 @@ function listas(lista){
         if(lista==5){var ruta = "lista_ubicaciones";}
         if(lista==6){var ruta = "listas_equipos";}
         if(lista==7){var ruta = "lista_actividades";}
-        if(lista==8){var ruta = "lista_solicitudes";}
+        if(lista==8){var ruta = "lista_calibraciones";}
+        if(lista==9){var ruta = "lista_clientes";}
+        if(lista==10){var ruta = "lista_condiciones";}
+        if(lista==11){var ruta = "lista_modelos";}
+        if(lista==12){var ruta = "lista_unidades";}
+        if(lista==13){var ruta = "lista_numeros";}
+        if(lista==14){var ruta = "lista_tipos";}
 
     $("#contenido_principal").html($("#cargador").html());
 
@@ -40,6 +53,66 @@ function editar_usuario(id_usuario) {
 //funcion para mostrar y actualizar la informacion de un usuario
 
     var ruta = "editar_usuario/"+id_usuario+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_marca(id_marca) {
+//funcion para mostrar y actualizar la informacion de una marca
+
+    var ruta = "editar_marca/"+id_marca+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_tipo(id_tipo) {
+//funcion para mostrar y actualizar la informacion de una marca
+
+    var ruta = "editar_tipo/"+id_tipo+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_condicion(id_condicion) {
+//funcion para mostrar y actualizar la informacion de un estadode un equipo
+
+    var ruta = "editar_condicion/"+id_condicion+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_modelo(id_modelo) {
+//funcion para mostrar y actualizar la informacion de un estadode un equipo
+
+    var ruta = "editar_modelo/"+id_modelo+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_unidad(id_unidad) {
+//funcion para mostrar y actualizar la informacion de un estadode un equipo
+
+    var ruta = "editar_unidad/"+id_unidad+"";
 
     $("#contenido_principal").html($("#cargador").html());
 
@@ -72,18 +145,6 @@ function editar_nombre(id_nombre) {
     })
 }
 
-function editar_marca(id_marca) {
-//funcion para mostrar y actualizar la informacion de una marca
-
-    var ruta = "editar_marca/"+id_marca+"";
-
-    $("#contenido_principal").html($("#cargador").html());
-
-    $.get(ruta,function(resultado){
-        $("#contenido_principal").html(resultado);
-    })
-}
-
 function editar_ubicacion(id_ubicacion) {
 //funcion para mostrar y actualizar la informacion de un lugar de almacenamiento
 
@@ -100,6 +161,18 @@ function editar_actividad(id_actividad) {
 //funcion para mostrar y actualizar la informacion de una actividad
 
     var ruta = "editar_actividad/"+id_actividad+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
+function editar_cliente(id_cliente) {
+//funcion para mostrar y actualizar la informacion de una actividad
+
+    var ruta = "editar_cliente/"+id_cliente+"";
 
     $("#contenido_principal").html($("#cargador").html());
 
@@ -132,6 +205,18 @@ function mostrar_equipo(id_equipo) {
     })
 }
 
+function mostrar_cliente(id_cliente) {
+//funcion para mostrar y actualizar la informacion de un usuario
+
+    var ruta = "mostrar_cliente/"+id_cliente+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
  $(document).on("submit",".formulario",function(e){
 //funcion para atrapar el formulario de usuarios y enviar los datos
 
@@ -145,7 +230,14 @@ function mostrar_equipo(id_equipo) {
         var marca=$(this).attr("id");
         var ubicacion=$(this).attr("id");
         var actividad=$(this).attr("id");
-        var solicitud=$(this).attr("id");
+        var cliente=$(this).attr("id");
+        var condicion=$(this).attr("id");
+        var modelo=$(this).attr("id");
+        var unidad=$(this).attr("id");
+        var calibracion=$(this).attr("id");
+        var numero=$(this).attr("id");
+        var tipo=$(this).attr("id");
+
 
         if(usuario=="nuevo_usuario"){ var ruta="crear_usuario"; var nota="notificacion"; }
         if(equipo=="nuevo_equipo"){ var ruta="crear_equipo"; var nota="notificacion"; }
@@ -153,7 +245,13 @@ function mostrar_equipo(id_equipo) {
         if(marca=="nueva_marca"){ var ruta="crear_marca"; var nota="notificacion"; }
         if(ubicacion=="nueva_ubicacion"){ var ruta="crear_ubicacion"; var nota="notificacion"; }
         if(actividad=="nueva_actividad"){ var ruta="crear_actividad"; var nota="notificacion"; }
-        if(actividad=="nueva_solicitud"){ var ruta="crear_solicitud"; var nota="notificacion"; }
+        if(cliente=="nuevo_cliente"){ var ruta="crear_cliente"; var nota="notificacion"; }
+        if(condicion=="nueva_condicion"){ var ruta="crear_condicion"; var nota="notificacion"; }
+        if(modelo=="nuevo_modelo"){ var ruta="crear_modelo"; var nota="notificacion"; }
+        if(unidad=="nueva_unidad"){ var ruta="crear_unidad"; var nota="notificacion"; }
+        if(calibracion=="nueva_calibracion"){ var ruta="crear_calibracion"; var nota="notificacion"; }
+        if(numero=="nuevo_numero"){ var ruta="crear_numero"; var nota="notificacion"; }
+        if(tipo=="nuevo_tipo"){ var ruta="crear_tipo"; var nota="notificacion"; }
 
         if(usuario=="editar_usuario"){ var ruta="actualizar_usuario"; var nota="notificacion"; }
         if(equipo=="editar_equipo"){ var ruta="actualizar_equipo"; var nota="notificacion"; }
@@ -161,6 +259,12 @@ function mostrar_equipo(id_equipo) {
         if(marca=="editar_marca"){ var ruta="actualizar_marca"; var nota="notificacion"; }
         if(ubicacion=="editar_ubicacion"){ var ruta="actualizar_ubicacion"; var nota="notificacion"; }
         if(actividad=="editar_actividad"){ var ruta="actualizar_actividad"; var nota="notificacion"; }
+        if(cliente=="editar_cliente"){ var ruta="actualizar_cliente"; var nota="notificacion"; }
+        if(condicion=="editar_condicion"){ var ruta="actualizar_condicion"; var nota="notificacion"; }
+        if(modelo=="editar_modelo"){ var ruta="actualizar_modelo"; var nota="notificacion"; }
+        if(unidad=="editar_unidad"){ var ruta="actualizar_unidad"; var nota="notificacion"; }
+        if(tipo=="editar_tipo"){ var ruta="actualizar_tipo"; var nota="notificacion"; }
+
 
         if(usuario=="cambiar_contrasena"){ var ruta="cambiar_contrasena"; var nota="notificacion_contrasena"; }
 
@@ -199,6 +303,33 @@ function mostrar_equipo(id_equipo) {
                             $('#'+actividad+'').trigger("reset");
                         }
 
+                        if(cliente==nuevo_cliente){
+                            $('#'+cliente+'').trigger("reset");
+                        }
+
+                        if(condicion==nueva_condicion){
+                            $('#'+condicion+'').trigger("reset");
+                        }
+
+                        if(modelo==nuevo_modelo){
+                            $('#'+modelo+'').trigger("reset");
+                        }
+
+                        if(unidad==nueva_unidad){
+                            $('#'+unidad+'').trigger("reset");
+                        }
+
+                        if(calibracion==nueva_calibracion){
+                            $('#'+calibracion+'').trigger("reset");
+                        }
+
+                        if(numero==nuevo_numero){
+                            $('#'+numero+'').trigger("reset");
+                        }
+
+                        if(tipo==nuevo_tipo){
+                            $('#'+tipo+'').trigger("reset");
+                        }
                     }
                 });
 })
@@ -271,6 +402,66 @@ function eliminar_usuario(argumento) {
     })
 }
 
+function eliminar_marca(argumento) {
+
+    var ruta = "eliminar_marca/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(4);
+    })
+}
+
+function eliminar_tipo(argumento) {
+
+    var ruta = "eliminar_tipo/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(14);
+    })
+}
+
+function eliminar_condicion(argumento) {
+
+    var ruta = "eliminar_condicion/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(10);
+    })
+}
+
+function eliminar_modelo(argumento) {
+
+    var ruta = "eliminar_modelo/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(11);
+    })
+}
+
+function eliminar_unidad(argumento) {
+
+    var ruta = "eliminar_unidad/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(12);
+    })
+}
+
 function eliminar_equipo(argumento) {
 
     var ruta = "eliminar_equipo/" + argumento + "";
@@ -295,18 +486,6 @@ function eliminar_nombre(argumento) {
     })
 }
 
-function eliminar_marca(argumento) {
-
-    var ruta = "eliminar_marca/" + argumento + "";
-    var divresul = "notificacion";
-    $("#" + divresul + "").html($("#cargador").html());
-
-    $.get(ruta, function (resultado) {
-        $("#" + divresul + "").html(resultado);
-        listas(4);
-    })
-}
-
 function eliminar_ubicacion(argumento) {
 
     var ruta = "eliminar_ubicacion/" + argumento + "";
@@ -328,6 +507,18 @@ function eliminar_actividad(argumento) {
     $.get(ruta, function (resultado) {
         $("#" + divresul + "").html(resultado);
         listas(7);
+    })
+}
+
+function eliminar_cliente(argumento) {
+
+    var ruta = "eliminar_cliente/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(9);
     })
 }
 
@@ -358,39 +549,63 @@ function buscarequipo(){
     $.get(ruta,function(resultado){
         $("#contenido_principal").html(resultado);
     })
+}
+
+function buscarcliente(){
+
+    var dato=$("#dato_buscado").val();
+    if(dato != "")
+    {
+        var ruta="buscar_clientes/"+dato+"";
+    }
+
+    $("#contenido_principal").html($("#cargador_empresa").html());
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
 
 }
 
-function mostrar(id) {
-    if (id == "bascula") {
-        $("#bascula").show();
-        $("#balanza").hide();
-        $("#masa").hide();
-        $("#pesometro").hide();
+function showContent() {
+    element = document.getElementById("content");
+    check = document.getElementById("check");
+    if (check.checked) {
+        element.style.display='block';
     }
-
-    if (id == "balanza") {
-        $("#bascula").hide();
-        $("#balanza").show();
-        $("#masa").hide();
-        $("#pesometro").hide();
-    }
-
-    if (id == "masa") {
-        $("#bascula").hide();
-        $("#balanza").hide();
-        $("#masa").show();
-        $("#pesometro").hide();
-    }
-
-    if (id == "pesometro") {
-        $("#bascula").hide();
-        $("#balanza").hide();
-        $("#masa").hide();
-        $("#pesometro").show();
+    else {
+        element.style.display='none';
     }
 }
 
+function showContent2() {
+    element = document.getElementById("content2");
+    check = document.getElementById("check2");
+    if (check.checked) {
+        element.style.display='block';
+    }
+    else {
+        element.style.display='none';
+    }
+}
 
+function showContent3() {
+    element = document.getElementById("content3");
+    check = document.getElementById("check3");
+    if (check.checked) {
+        element.style.display='block';
+    }
+    else {
+        element.style.display='none';
+    }
+}
 
-
+function showContent4() {
+    element = document.getElementById("content4");
+    check = document.getElementById("check4");
+    if (check.checked) {
+        element.style.display='block';
+    }
+    else {
+        element.style.display='none';
+    }
+}

@@ -1,5 +1,3 @@
-<div class="box box-primary">
-
     <div class="box-header">
         <h3 class="box-title">Lista de usuarios</h3>
         <br><br>
@@ -21,7 +19,6 @@
     <table id="tabla_usuarios" class="table table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th style="width:10px">Id</th>
                 <th>Rut</th>
                 <th>Nombre</th>
                 <th>Apellido Paterno</th>
@@ -35,7 +32,6 @@
             ?>
 
             <tr role="row" class="odd">
-                <td class="sorting_1"><?= $usuario->id; ?></td>
                 <td><?= $usuario->rut_usuario; ?></td>
                 <td><?= $usuario->name; ?></td>
                 <td><?= $usuario->apellido_paterno; ?></td>
@@ -64,7 +60,6 @@
         }
     ?>
 
-</div>
 </div>
     <div class="form-group has-feedback">
         <button class=".btn btn-primary col-md-offset-5"><i class="fa fa-plus"></i><a href="javascript:void(0);" onclick="agregar(1);" style="color: #ffffff"> Agregar Usuario</a></button>

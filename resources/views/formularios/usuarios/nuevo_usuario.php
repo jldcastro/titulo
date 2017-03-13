@@ -1,6 +1,5 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Ingresar Nuevo Usuario</h3>
             </div><!-- /.box-header -->
@@ -74,6 +73,5 @@
                 </div>
 
             </form>
-        </div>
     </div>
 </div>

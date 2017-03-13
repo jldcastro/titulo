@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Marca;
-use Request;
-
+use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -33,19 +32,16 @@ class MarcasController extends Controller
     }
 
     //Formulario para nueva marca equipo
-    public function crear_marca()
+    public function crear_marca(Request $request)
     {
-
-        $data=Request::all();
-
         $marca= new Marca;
-        $marca->marca_modelo=$data["marca_modelo"];
+        $marca->nombre=$request->input("nombre");
 
         $resultado= $marca->save();
 
         if($resultado){
 
-            return view("mensajes.correcto")->with("mensaje","Marca/Modelo Equipo Registrado Exitósamente");
+            return view("mensajes.correcto")->with("mensaje","Marca equipo Registrada Exitósamente");
         }
         else
         {
@@ -69,18 +65,15 @@ class MarcasController extends Controller
 
     public function actualizar_marca(Request $request)
     {
-
-        $data=$request::all();
-        $idMarca=$data["id_marca"];
+        $idMarca=$request->input("id_marca");
         $marca=Marca::find($idMarca);
-
-        $marca->marca_modelo=$data["marca_modelo"];
+        $marca->nombre=$request->input("nombre");
 
         $resultado= $marca->save();
 
         if($resultado){
 
-            return view("mensajes.correcto")->with("mensaje","La marca/modelo del equipo fue actualizado exitósamente");
+            return view("mensajes.correcto")->with("mensaje","La marca del equipo fue actualizado exitósamente");
         }
         else
         {
@@ -97,7 +90,7 @@ class MarcasController extends Controller
         $resultado = $marca->delete();
 
         if ($resultado) {
-            return view("mensajes.correcto")->with("mensaje", "La marca/modelo del equipo fue eliminado exitósamente");
+            return view("mensajes.correcto")->with("mensaje", "La marca del equipo fue eliminado exitósamente");
         } else {
             return view("mensajes.incorrecto")->with("mensaje", "Hubo un error vuelva a intentarlo");
         }

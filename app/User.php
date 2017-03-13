@@ -44,16 +44,8 @@ class User extends Model implements AuthenticatableContract,
         return  $resultado;
     }
 
-    public function tipo($idtipo)
+    public function calibracion()
     {
-        $resultado=TipoUsuario::find($idtipo);
-        if(isset($resultado)){
-            return $resultado->nombre;
-        }
-        else
-        {
-            return "sin definir";
-        }
-
+        return $this->hasMany('App\Calibracion');
     }
 }
