@@ -8,8 +8,8 @@ class Marca extends Model
 {
     protected $table = 'marcas';
 
-    public function equipo()
+    public function calibracion()
     {
-        return $this->hasMany('App\Equipo');
+        return $this->hasMany('App\Calibracion');
     }
 }

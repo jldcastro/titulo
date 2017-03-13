@@ -126,6 +126,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('actualizar_tipo', 'TiposController@actualizar_tipo');
     Route::get('eliminar_tipo/{id}', 'TiposController@eliminar_tipo');
 
+//Rutas mantenedores materiales
+
+    Route::get('nuevo_material', 'MaterialesController@nuevo_material');
+    Route::post('crear_material', 'MaterialesController@crear_material');
+    Route::get('lista_materiales/{page?}','MaterialesController@lista_materiales');
+    Route::get('editar_material/{id}', 'MaterialesController@editar_material');
+    Route::post('actualizar_material', 'MaterialesController@actualizar_material');
+    Route::get('eliminar_material/{id}', 'MaterialesController@eliminar_material');
 
 //Rutas formulario f4
 

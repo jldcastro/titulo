@@ -9,6 +9,7 @@ use App\Marca;
 use App\Numero;
 use App\Tipo;
 use App\Cliente;
+use App\Material;
 use App\Condicion;
 use App\Modelo;
 use App\Unidad;
@@ -35,6 +36,7 @@ class CalibracionesController extends Controller
     //presenta el formulario para nueva solicitud de cotización
     public function nueva_calibracion()
     {
+        $materiales = Material::all();
         $marcas = Marca::all();
         $modelos = Modelo::all();
         $tipos = Tipo::all();
@@ -44,7 +46,7 @@ class CalibracionesController extends Controller
         $fecha_solicitud = Carbon::now();
         $fecha_solicitud = $fecha_solicitud->format('Y-m-d');
         $nombre_completo =Auth::User()->name. " " . Auth::User()->apellido_paterno;
-        return view('formularios.f37.nueva_calibracion')->with("numero",$numero)->with("fecha_solicitud",$fecha_solicitud)->with("nombre_completo",$nombre_completo)->with("modelos",$modelos)->with("unidades",$unidades)->with("condiciones",$condiciones)->with("marcas",$marcas)->with("tipos",$tipos);
+        return view('formularios.f37.nueva_calibracion')->with("numero",$numero)->with("fecha_solicitud",$fecha_solicitud)->with("nombre_completo",$nombre_completo)->with("modelos",$modelos)->with("unidades",$unidades)->with("condiciones",$condiciones)->with("marcas",$marcas)->with("tipos",$tipos)->with("materiales",$materiales);
     }
 
     //presenta la lista y paginación de solicitudes de cotización

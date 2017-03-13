@@ -14,6 +14,7 @@
             <li><a href="javascript:void(0);" onclick="listas(10);"><i class="fa fa-circle"></i>Condiciones</a></li>
             <li><a href="javascript:void(0);" onclick="listas(3);"><i class="fa fa-briefcase"></i>Equipos</a></li>
             <li><a href="javascript:void(0);" onclick="listas(4);"><i class="fa fa-barcode"></i>Marcas</a></li>
+            <li><a href="javascript:void(0);" onclick="listas(15);"><i class="fa fa-list"></i>Materiales</a></li>
             <li><a href="javascript:void(0);" onclick="listas(11);"><i class="fa fa-barcode"></i>Modelos</a></li>
             <li><a href="javascript:void(0);" onclick="listas(13);"><i class="fa fa-sort-asc"></i>Números</a></li>
             <li><a href="javascript:void(0);" onclick="listas(5);"><i class="fa fa-map-marker"></i>Ubicaciones</a></li>

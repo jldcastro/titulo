@@ -15,7 +15,7 @@ function agregar(argumento){
         if(argumento==12){var ruta = "nueva_unidad";}
         if(argumento==13){var ruta = "nuevo_numero";}
         if(argumento==14){var ruta = "nuevo_tipo";}
-
+        if(argumento==15){var ruta = "nuevo_material";}
 
 		$("#contenido_principal").html($("#cargador").html());
 		   
@@ -41,6 +41,7 @@ function listas(lista){
         if(lista==12){var ruta = "lista_unidades";}
         if(lista==13){var ruta = "lista_numeros";}
         if(lista==14){var ruta = "lista_tipos";}
+        if(lista==15){var ruta = "lista_materiales";}
 
     $("#contenido_principal").html($("#cargador").html());
 
@@ -157,6 +158,18 @@ function editar_ubicacion(id_ubicacion) {
     })
 }
 
+function editar_material(id_material) {
+//funcion para mostrar y actualizar la informacion de un usuario
+
+    var ruta = "editar_material/"+id_material+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
 function editar_actividad(id_actividad) {
 //funcion para mostrar y actualizar la informacion de una actividad
 
@@ -237,6 +250,7 @@ function mostrar_cliente(id_cliente) {
         var calibracion=$(this).attr("id");
         var numero=$(this).attr("id");
         var tipo=$(this).attr("id");
+        var material=$(this).attr("id");
 
 
         if(usuario=="nuevo_usuario"){ var ruta="crear_usuario"; var nota="notificacion"; }
@@ -252,6 +266,7 @@ function mostrar_cliente(id_cliente) {
         if(calibracion=="nueva_calibracion"){ var ruta="crear_calibracion"; var nota="notificacion"; }
         if(numero=="nuevo_numero"){ var ruta="crear_numero"; var nota="notificacion"; }
         if(tipo=="nuevo_tipo"){ var ruta="crear_tipo"; var nota="notificacion"; }
+        if(material=="nuevo_material"){ var ruta="crear_material"; var nota="notificacion"; }
 
         if(usuario=="editar_usuario"){ var ruta="actualizar_usuario"; var nota="notificacion"; }
         if(equipo=="editar_equipo"){ var ruta="actualizar_equipo"; var nota="notificacion"; }
@@ -264,6 +279,7 @@ function mostrar_cliente(id_cliente) {
         if(modelo=="editar_modelo"){ var ruta="actualizar_modelo"; var nota="notificacion"; }
         if(unidad=="editar_unidad"){ var ruta="actualizar_unidad"; var nota="notificacion"; }
         if(tipo=="editar_tipo"){ var ruta="actualizar_tipo"; var nota="notificacion"; }
+        if(material=="editar_material"){ var ruta="actualizar_material"; var nota="notificacion"; }
 
 
         if(usuario=="cambiar_contrasena"){ var ruta="cambiar_contrasena"; var nota="notificacion_contrasena"; }
@@ -329,6 +345,10 @@ function mostrar_cliente(id_cliente) {
 
                         if(tipo==nuevo_tipo){
                             $('#'+tipo+'').trigger("reset");
+                        }
+
+                        if(material==nuevo_material){
+                            $('#'+material+'').trigger("reset");
                         }
                     }
                 });
@@ -411,6 +431,18 @@ function eliminar_marca(argumento) {
     $.get(ruta, function (resultado) {
         $("#" + divresul + "").html(resultado);
         listas(4);
+    })
+}
+
+function eliminar_material(argumento) {
+
+    var ruta = "eliminar_material/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(15);
     })
 }
 
