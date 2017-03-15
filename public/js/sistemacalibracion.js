@@ -16,6 +16,8 @@ function agregar(argumento){
         if(argumento==13){var ruta = "nuevo_numero";}
         if(argumento==14){var ruta = "nuevo_tipo";}
         if(argumento==15){var ruta = "nuevo_material";}
+        if(argumento==16){var ruta = "nuevo_tipocliente";}
+
 
 		$("#contenido_principal").html($("#cargador").html());
 		   
@@ -32,7 +34,7 @@ function listas(lista){
         if(lista==3){var ruta = "lista_nombres";}
         if(lista==4){var ruta = "lista_marcas";}
         if(lista==5){var ruta = "lista_ubicaciones";}
-        if(lista==6){var ruta = "listas_equipos";}
+        if(lista==6){var ruta = "lista_equipos";}
         if(lista==7){var ruta = "lista_actividades";}
         if(lista==8){var ruta = "lista_calibraciones";}
         if(lista==9){var ruta = "lista_clientes";}
@@ -42,6 +44,7 @@ function listas(lista){
         if(lista==13){var ruta = "lista_numeros";}
         if(lista==14){var ruta = "lista_tipos";}
         if(lista==15){var ruta = "lista_materiales";}
+        if(lista==16){var ruta = "lista_tiposclientes";}
 
     $("#contenido_principal").html($("#cargador").html());
 
@@ -170,6 +173,18 @@ function editar_material(id_material) {
     })
 }
 
+function editar_tipocliente(id_tipocliente) {
+//funcion para mostrar y actualizar la informacion de un usuario
+
+    var ruta = "editar_tipocliente/"+id_tipocliente+"";
+
+    $("#contenido_principal").html($("#cargador").html());
+
+    $.get(ruta,function(resultado){
+        $("#contenido_principal").html(resultado);
+    })
+}
+
 function editar_actividad(id_actividad) {
 //funcion para mostrar y actualizar la informacion de una actividad
 
@@ -251,6 +266,7 @@ function mostrar_cliente(id_cliente) {
         var numero=$(this).attr("id");
         var tipo=$(this).attr("id");
         var material=$(this).attr("id");
+        var tipocliente=$(this).attr("id");
 
 
         if(usuario=="nuevo_usuario"){ var ruta="crear_usuario"; var nota="notificacion"; }
@@ -267,6 +283,7 @@ function mostrar_cliente(id_cliente) {
         if(numero=="nuevo_numero"){ var ruta="crear_numero"; var nota="notificacion"; }
         if(tipo=="nuevo_tipo"){ var ruta="crear_tipo"; var nota="notificacion"; }
         if(material=="nuevo_material"){ var ruta="crear_material"; var nota="notificacion"; }
+        if(tipocliente=="nuevo_tipocliente"){ var ruta="crear_tipocliente"; var nota="notificacion"; }
 
         if(usuario=="editar_usuario"){ var ruta="actualizar_usuario"; var nota="notificacion"; }
         if(equipo=="editar_equipo"){ var ruta="actualizar_equipo"; var nota="notificacion"; }
@@ -280,6 +297,7 @@ function mostrar_cliente(id_cliente) {
         if(unidad=="editar_unidad"){ var ruta="actualizar_unidad"; var nota="notificacion"; }
         if(tipo=="editar_tipo"){ var ruta="actualizar_tipo"; var nota="notificacion"; }
         if(material=="editar_material"){ var ruta="actualizar_material"; var nota="notificacion"; }
+        if(tipocliente=="editar_tipocliente"){ var ruta="actualizar_tipocliente"; var nota="notificacion"; }
 
 
         if(usuario=="cambiar_contrasena"){ var ruta="cambiar_contrasena"; var nota="notificacion_contrasena"; }
@@ -349,6 +367,10 @@ function mostrar_cliente(id_cliente) {
 
                         if(material==nuevo_material){
                             $('#'+material+'').trigger("reset");
+                        }
+
+                        if(tipocliente==nuevo_tipocliente){
+                            $('#'+tipocliente+'').trigger("reset");
                         }
                     }
                 });
@@ -491,6 +513,18 @@ function eliminar_unidad(argumento) {
     $.get(ruta, function (resultado) {
         $("#" + divresul + "").html(resultado);
         listas(12);
+    })
+}
+
+function eliminar_tipocliente(argumento) {
+
+    var ruta = "eliminar_tipocliente/" + argumento + "";
+    var divresul = "notificacion";
+    $("#" + divresul + "").html($("#cargador").html());
+
+    $.get(ruta, function (resultado) {
+        $("#" + divresul + "").html(resultado);
+        listas(16);
     })
 }
 
@@ -641,3 +675,15 @@ function showContent4() {
         element.style.display='none';
     }
 }
+
+$('#id_marca').on('change',function(e){
+    console.log(e);
+    var id_marca= e.target.val.value;
+
+    $.get('/ajax-modelo?id_marca=' + id_marca,function(data){
+        $('#id_modelo').empty();
+        $.each(data,function(nueva_calibracion,modeloObj){});
+        $('#id_modelo').append('<option value="'+modeloObj.id+'">'+modeloObj.nombre+'</option>');
+    });
+
+    });

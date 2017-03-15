@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Marca;
+use App\Modelo;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -85,7 +86,6 @@ class MarcasController extends Controller
 
     public function eliminar_marca($id)
     {
-
         $marca = Marca::find($id);
         $resultado = $marca->delete();
 

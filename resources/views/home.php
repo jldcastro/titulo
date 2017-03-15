@@ -17,14 +17,14 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <!-- select2 -->
+        <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
         <!-- iCheck -->
         <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
         <!-- Morris chart -->
         <link rel="stylesheet" href="plugins/morris/morris.css">
         <!-- jvectormap -->
         <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-        <!-- Daterange picker -->
-        <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
         <!-- Logo Empresa en la pestaña del navegador -->
@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="css/sistemacalibracion.css">
 
         <link rel="stylesheet" href="css/barra.css">
+
 
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -133,6 +134,8 @@
         <script>  $("#content-wrapper").css("min-height","2000px"); </script>
         <!-- Bootstrap 3.3.5 -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- Select2 -->
+        <script src="plugins/select2/js/select2.min.js"></script>
         <!-- Morris.js charts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="plugins/morris/morris.min.js"></script>
@@ -143,9 +146,6 @@
         <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         <!-- jQuery Knob Chart -->
         <script src="plugins/knob/jquery.knob.js"></script>
-        <!-- daterangepicker -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-        <script src="plugins/daterangepicker/daterangepicker.js"></script>
         <!-- Bootstrap WYSIHTML5 -->
         <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
         <!-- Slimscroll -->

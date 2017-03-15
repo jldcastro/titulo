@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModelosTable extends Migration
+class CreateBasculasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateModelosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modelos', function (Blueprint $table) {
+        Schema::create('basculas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->integer('idMarca')->unsigned()->nullable();
-            $table->foreign('idMarca')->references('id')->on('marcas')->onDelete('cascade');
+            $table->integer('item');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateModelosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('modelos');
+        Schema::drop('basculas');
     }
 }

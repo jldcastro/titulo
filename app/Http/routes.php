@@ -11,6 +11,10 @@
 |
 */
 
+use App\Marca;
+use App\Modelo;
+use Illuminate\Support\Facades\Input;
+
 // Rutas para el login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('login', 'Auth\AuthController@getLogin');
@@ -79,6 +83,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('editar_marca/{id}', 'MarcasController@editar_marca');
     Route::post('actualizar_marca', 'MarcasController@actualizar_marca');
     Route::get('eliminar_marca/{id}', 'MarcasController@eliminar_marca');
+Route::get('ajax-modelo',function(){
+    $id_marca = Input::get('id_marca');
+    $modelos = Modelo::where('idMarca','=',$id_marca)->get();
+    return Response::json($modelos);
+
+});
 
 
 //Rutas mantenedores ubicaciones
@@ -107,11 +117,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('editar_modelo/{id}', 'ModelosController@editar_modelo');
     Route::post('actualizar_modelo', 'ModelosController@actualizar_modelo');
     Route::get('eliminar_modelo/{id}', 'ModelosController@eliminar_modelo');
+    Route::POST('modelos', function(){
+    return Modelo::where('idMarca','=', Input::get('marca'))->get();
+});
 
 //Rutas mantenedores unidades
 
     Route::get('nueva_unidad', 'UnidadesController@nueva_unidad');
-    Route::post('crear_unidad', 'UnidadesController@crear_unidad');
+    Route::post('crear_ unidad', 'UnidadesController@crear_unidad');
     Route::get('lista_unidades/{page?}','UnidadesController@lista_unidades');
     Route::get('editar_unidad/{id}', 'UnidadesController@editar_unidad');
     Route::post('actualizar_unidad', 'UnidadesController@actualizar_unidad');
@@ -134,6 +147,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('editar_material/{id}', 'MaterialesController@editar_material');
     Route::post('actualizar_material', 'MaterialesController@actualizar_material');
     Route::get('eliminar_material/{id}', 'MaterialesController@eliminar_material');
+
+//Rutas mantenedores tipos clientes
+
+    Route::get('nuevo_tipocliente', 'TiposClientesController@nuevo_tipocliente');
+    Route::post('crear_tipocliente', 'TiposClientesController@crear_tipocliente');
+    Route::get('lista_tiposclientes/{page?}','TiposClientesController@lista_tiposclientes');
+    Route::get('editar_tipocliente/{id}', 'TiposClientesController@editar_tipocliente');
+    Route::post('actualizar_tipocliente', 'TiposClientesController@actualizar_tipocliente');
+    Route::get('eliminar_tipocliente/{id}', 'TiposClientesController@eliminar_tipocliente');
+
 
 //Rutas formulario f4
 

@@ -12,7 +12,8 @@
                 <thead>
                 <tr>
                     <th style="width:10px">Id</th>
-                    <th>Modelo Equipo</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
                 </tr>
                 </thead>
 
@@ -24,6 +25,7 @@
                     <tr role="row" class="odd">
                         <td class="sorting_1"><?= $modelo->id; ?></td>
                         <td><?= $modelo->nombre; ?></td>
+                        <td><?= $modelo->marca->nombre; ?></td>
                         <td><button class=".btn  btn-success btn-xs" onclick="editar_modelo(<?= $modelo->id; ?>);" ><i class="fa fa-fw fa-pencil-square-o"></i> Actualizar</button>
                             <button class=".btn  btn-danger btn-xs" onclick="eliminar_modelo(<?= $modelo->id; ?>);" ><i class="fa fa-fw fa-remove"></i> Eliminar</button>
                         </td>

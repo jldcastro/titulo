@@ -23,7 +23,6 @@ class CreateCalibracionesTable extends Migration
             $table->foreign('idCliente')->references('id')->on('clientes')->onDelete('cascade');
             $table->string('comuna_servicio');
             $table->string('lugar_servicio');
-            $table->mediumText('observaciones');
             $table->timestamps();
         });
     }

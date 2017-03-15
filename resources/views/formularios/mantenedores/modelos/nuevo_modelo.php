@@ -16,7 +16,17 @@
                         <input type="text" class="form-control" id="nombre" name="nombre">
                         <span class="fa fa-barcode form-control-feedback"></span>
                     </div>
+                    <div class="form-group has-feedback col-md-12">
+                        <label for="id_marca">Seleccione Marca</label>
+                        <select id="id_marca" name="id_marca" class="form-control">
+                            <?php foreach($marcas as $marca){ ?>
+                                <option value="<?= $marca->id; ?>"><?= $marca->nombre; ?> </option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
+
+
                 <div class="form-group has-feedback">
                     <button type="submit" class=".btn btn-primary col-md-offset-5">Registrar</button>
                 </div>

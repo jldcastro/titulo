@@ -20,6 +20,7 @@
             <li><a href="javascript:void(0);" onclick="listas(5);"><i class="fa fa-map-marker"></i>Ubicaciones</a></li>
             <li><a href="javascript:void(0);" onclick="listas(12);"><i class="fa fa-list"></i>Unidades</a></li>
             <li><a href="javascript:void(0);" onclick="listas(14);"><i class="fa fa-list"></i>Tipos</a></li>
+            <li><a href="javascript:void(0);" onclick="listas(16);"><i class="fa fa-list"></i>Tipos Clientes</a></li>
         </ul>
     </li>
 </ul>

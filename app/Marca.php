@@ -8,8 +8,14 @@ class Marca extends Model
 {
     protected $table = 'marcas';
 
+
     public function calibracion()
     {
         return $this->hasMany('App\Calibracion');
+    }
+
+    public function modelo()
+    {
+        return $this->hasMany('App\Modelo');
     }
 }

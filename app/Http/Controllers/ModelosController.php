@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modelo;
+use App\Marca;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -22,13 +23,15 @@ class ModelosController extends Controller
     //presenta el formulario para nueva marca equipo
     public function nuevo_modelo()
     {
-        return view('formularios.mantenedores.modelos.nuevo_modelo');
+        $marcas = Marca::all();
+        return view('formularios.mantenedores.modelos.nuevo_modelo')->with("marcas",$marcas);
     }
 
     public function lista_modelos()
     {
+        $marcas = Marca::all();
         $modelos= Modelo::paginate(10);
-        return view('formularios.mantenedores.modelos.lista_modelos')->with("modelos", $modelos);
+        return view('formularios.mantenedores.modelos.lista_modelos')->with("modelos", $modelos)->with("marcas",$marcas);
     }
 
     //Formulario para nueva marca equipo
@@ -36,6 +39,7 @@ class ModelosController extends Controller
     {
         $modelo= new Modelo;
         $modelo->nombre=$request->input("nombre");
+        $modelo->idMarca=$request->input("id_marca");
 
         $resultado= $modelo->save();
 
@@ -52,10 +56,11 @@ class ModelosController extends Controller
     public function editar_modelo($id)
     {
         //funcion para mostrar los datos de un modelo
+        $marcas = Marca::all();
         $modelo=Modelo::find($id);
         $contador=count($modelo);
         if($contador>0){
-            return view("formularios.mantenedores.modelos.editar_modelo")->with("modelo",$modelo);
+            return view("formularios.mantenedores.modelos.editar_modelo")->with("modelo",$modelo)->with("marcas",$marcas);
         }
         else
         {
@@ -68,6 +73,7 @@ class ModelosController extends Controller
         $idModelo = $request->input("id_modelo");
         $modelo = Modelo::find($idModelo);
         $modelo->nombre = $request->input("nombre");
+        $modelo->idMarca=$request->input("id_marca");
 
         $resultado= $modelo->save();
 
